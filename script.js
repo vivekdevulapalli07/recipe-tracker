@@ -1,10 +1,6 @@
-// Initialize recipes from localStorage or use default recipe
-let recipes = JSON.parse(localStorage.getItem('recipes')) || [];
-
-// Add default broccoli soup recipe if no recipes exist
-if (recipes.length === 0) {
-    const defaultRecipe = {
-        id: generateId(),
+// Define all recipes in a central collection
+const defaultRecipes = [
+    {
         name: "Broccoli Almond Soup",
         ingredients: [
             "1 tsp olive oil",
@@ -26,11 +22,8 @@ if (recipes.length === 0) {
             "Sauté the remaining broccoli and add salt, pepper, chili flakes and oregano.",
             "While serving heat and garnish with chili oil, roasted almond flakes or seeds & broccoli florets."
         ]
-    };
-    
-    // Tomato Chutney Recipe
-    const tomatoChutney = {
-        id: generateId(),
+    },
+    {
         name: "Tomato Chutney",
         ingredients: [
             "4 large ripe tomatoes",
@@ -61,11 +54,8 @@ if (recipes.length === 0) {
             "Cook until the chutney reaches a thick, jam-like consistency.",
             "Let it cool completely before storing in an airtight container in the refrigerator."
         ]
-    };
-
-    // Kanda Poha Recipe
-    const kandaPoha = {
-        id: generateId(),
+    },
+    {
         name: "Kanda Poha",
         ingredients: [
             "2 cups flattened rice (poha), medium thickness",
@@ -97,11 +87,8 @@ if (recipes.length === 0) {
             "Garnish with fresh coriander leaves and grated coconut if using.",
             "Serve hot with a side of chutney if desired."
         ]
-    };
-
-    // Vegan Chocolate Cake Recipe
-    const veganChocolateCake = {
-        id: generateId(),
+    },
+    {
         name: "Vegan Chocolate Cake",
         ingredients: [
             "1 1/2 cups all-purpose flour",
@@ -132,13 +119,106 @@ if (recipes.length === 0) {
             "Once cake has cooled completely, spread frosting evenly over the top and sides of the cake.",
             "Slice and enjoy! Store leftovers in an airtight container at room temperature for up to 3 days."
         ]
-    };
+    },
+    // Add your new recipes here
+    {
+        name: "Pasta Arrabiata",
+        ingredients: [
+            "8 oz pasta (penne or spaghetti)",
+            "2 tbsp olive oil",
+            "4 cloves garlic, minced",
+            "1/2 tsp red pepper flakes (adjust to taste)",
+            "1 can (14 oz) crushed tomatoes",
+            "1 tsp dried oregano",
+            "1 tsp dried basil",
+            "Salt and black pepper to taste",
+            "Fresh basil leaves for garnish",
+            "Grated Parmesan cheese (optional)"
+        ],
+        instructions: [
+            "Cook pasta according to package directions until al dente. Drain and set aside.",
+            "In a large pan, heat olive oil over medium heat.",
+            "Add minced garlic and red pepper flakes, sauté for 1 minute until fragrant.",
+            "Add crushed tomatoes, oregano, and dried basil. Stir well.",
+            "Simmer sauce for 10-15 minutes until slightly thickened.",
+            "Season with salt and black pepper to taste.",
+            "Add cooked pasta to the sauce and toss to coat evenly.",
+            "Serve hot, garnished with fresh basil leaves and grated Parmesan if desired."
+        ]
+    },
+    {
+        name: "Avocado Toast",
+        ingredients: [
+            "2 slices of whole grain bread",
+            "1 ripe avocado",
+            "1/2 lemon, juiced",
+            "1/4 tsp red pepper flakes",
+            "Salt and black pepper to taste",
+            "Optional toppings: cherry tomatoes, microgreens, feta cheese, or a poached egg"
+        ],
+        instructions: [
+            "Toast the bread slices until golden brown and crispy.",
+            "Cut the avocado in half, remove the pit, and scoop the flesh into a bowl.",
+            "Add lemon juice, salt, and pepper to the avocado and mash with a fork to desired consistency.",
+            "Spread the mashed avocado evenly over the toast slices.",
+            "Sprinkle with red pepper flakes.",
+            "Add any optional toppings of your choice.",
+            "Serve immediately for the best taste and texture."
+        ]
+    },
+    {
+        name: "Banana Oatmeal Smoothie",
+        ingredients: [
+            "1 ripe banana",
+            "1/3 cup rolled oats",
+            "1 cup milk (dairy or plant-based)",
+            "1 tbsp honey or maple syrup",
+            "1/2 tsp vanilla extract",
+            "1/4 tsp ground cinnamon",
+            "1 tbsp nut butter (optional)",
+            "Ice cubes (optional)"
+        ],
+        instructions: [
+            "Add all ingredients to a blender.",
+            "Blend on high speed until smooth and creamy, about 1 minute.",
+            "If the smoothie is too thick, add more milk; if too thin, add more oats or banana.",
+            "Pour into a glass and enjoy immediately.",
+            "For a colder smoothie, add a few ice cubes before blending."
+        ]
+    }
+    // You can continue adding more recipes here
+];
+
+// Initialize recipes or synchronize with existing ones
+let recipes = JSON.parse(localStorage.getItem('recipes')) || [];
+
+// Function to compare and update recipes
+function syncRecipes() {
+    let recipeChanged = false;
     
-    recipes.push(defaultRecipe);
-    recipes.push(tomatoChutney);
-    recipes.push(kandaPoha);
-    recipes.push(veganChocolateCake);
-    saveRecipes();
+    // Create a map of existing recipes by name for easy lookup
+    const existingRecipesMap = {};
+    recipes.forEach(recipe => {
+        existingRecipesMap[recipe.name] = recipe;
+    });
+    
+    // Add or update default recipes
+    defaultRecipes.forEach(defaultRecipe => {
+        // If recipe doesn't exist, add it
+        if (!existingRecipesMap[defaultRecipe.name]) {
+            const newRecipe = {
+                id: generateId(),
+                ...defaultRecipe
+            };
+            recipes.push(newRecipe);
+            recipeChanged = true;
+        }
+    });
+    
+    // Save if changes were made
+    if (recipeChanged) {
+        saveRecipes();
+    }
 }
 
 // DOM elements
@@ -265,6 +345,10 @@ function saveRecipes() {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
+    // Sync recipes with defaults first
+    syncRecipes();
+    
+    // Then display
     displayRecipes();
 });
 
@@ -334,12 +418,3 @@ function loadRecipeDetails() {
         });
     });
 }
-
-// Call loadRecipeDetails if on recipe page
-document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('recipe-container')) {
-        loadRecipeDetails();
-    } else {
-        displayRecipes();
-    }
-});
