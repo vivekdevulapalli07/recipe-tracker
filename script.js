@@ -162,6 +162,11 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('On recipe page, loading details');
         loadRecipeDetails();
     }
+    
+    // Make sure click handlers are added after recipes are displayed
+    if (document.getElementById('recipes-list')) {
+        setTimeout(addRecipeCardClickHandlers, 100); // Short delay to ensure cards are rendered
+    }
 });
 
 // DOM elements
@@ -173,7 +178,7 @@ const addRecipeModal = document.getElementById('add-recipe-modal');
 const recipeForm = document.getElementById('recipe-form');
 const closeModalButton = document.querySelector('.close');
 
-// Display recipes
+// Display recipes - UPDATED FUNCTION
 function displayRecipes(recipesToDisplay = recipes) {
     if (!recipesList) {
         console.log('recipesList not found, not on index page');
@@ -185,18 +190,36 @@ function displayRecipes(recipesToDisplay = recipes) {
     recipesToDisplay.forEach(recipe => {
         const recipeCard = document.createElement('div');
         recipeCard.className = 'recipe-card';
+        recipeCard.setAttribute('data-recipe-id', recipe.id); // Store recipe ID as data attribute
         recipeCard.innerHTML = `
             <h2>${recipe.name}</h2>
             <p>${recipe.ingredients.length} ingredients</p>
             <p>${recipe.instructions.length} steps</p>
         `;
         
-        recipeCard.addEventListener('click', () => {
-            console.log('Recipe card clicked, ID:', recipe.id);
-            window.location.href = `recipe.html?id=${recipe.id}`;
+        recipesList.appendChild(recipeCard);
+    });
+    
+    // Add click handlers after all cards are created
+    addRecipeCardClickHandlers();
+}
+
+// NEW FUNCTION: Add click handlers to recipe cards
+function addRecipeCardClickHandlers() {
+    console.log('Adding click handlers to recipe cards');
+    const recipeCards = document.querySelectorAll('.recipe-card');
+    
+    recipeCards.forEach(card => {
+        const recipeId = card.getAttribute('data-recipe-id');
+        console.log(`Adding click handler to card with recipe ID: ${recipeId}`);
+        
+        card.addEventListener('click', function() {
+            console.log(`Card clicked, navigating to recipe with ID: ${recipeId}`);
+            window.location.href = `recipe.html?id=${recipeId}`;
         });
         
-        recipesList.appendChild(recipeCard);
+        // Add a visual indicator that the card is clickable
+        card.style.cursor = 'pointer';
     });
 }
 
