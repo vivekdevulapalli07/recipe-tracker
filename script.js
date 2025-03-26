@@ -185,6 +185,107 @@ const allRecipes = [
             "For a colder smoothie, add a few ice cubes before blending."
         ]
     }
+	
+	{
+		name: "Chickpea Curry",
+		ingredients: [
+			"2 cans (15 oz each) chickpeas, drained and rinsed",
+			"1 large onion, finely chopped",
+			"3 cloves garlic, minced",
+			"1 tbsp ginger, grated",
+			"1 can (14 oz) diced tomatoes",
+			"1 can (14 oz) coconut milk",
+			"2 tbsp curry powder",
+			"1 tsp ground cumin",
+			"1 tsp ground coriander",
+			"1/2 tsp turmeric",
+			"1/4 tsp cayenne pepper (adjust to taste)",
+			"1 tbsp vegetable oil",
+			"Salt to taste",
+			"Fresh cilantro for garnish",
+			"Lime wedges for serving"
+		],
+		instructions: [
+			"Heat oil in a large pot over medium heat. Add onions and sauté until translucent, about 5 minutes.",
+			"Add garlic and ginger, cook for another minute until fragrant.",
+			"Add all the spices (curry powder, cumin, coriander, turmeric, cayenne) and stir for 30 seconds.",
+			"Pour in the diced tomatoes with their juice and cook for 5 minutes, stirring occasionally.",
+			"Add the chickpeas and coconut milk. Stir well to combine.",
+			"Bring to a simmer, then reduce heat to low and cook uncovered for 15-20 minutes, stirring occasionally.",
+			"Season with salt to taste.",
+			"Garnish with fresh cilantro and serve with lime wedges on the side.",
+			"Enjoy with rice, naan bread, or your favorite grain."
+		]
+	},
+	{
+		name: "Mushroom Risotto",
+		ingredients: [
+			"1 1/2 cups arborio rice",
+			"4 cups vegetable broth, kept warm",
+			"1 lb mushrooms (cremini, shiitake, or a mix), sliced",
+			"1 medium onion, finely diced",
+			"3 cloves garlic, minced",
+			"1/2 cup dry white wine (optional, can substitute more broth)",
+			"2 tbsp olive oil",
+			"2 tbsp vegan butter or more olive oil",
+			"1 tbsp fresh thyme leaves (or 1 tsp dried)",
+			"1/4 cup nutritional yeast",
+			"Salt and black pepper to taste",
+			"Fresh parsley, chopped, for garnish"
+		],
+		instructions: [
+			"In a large pan, heat 1 tbsp olive oil over medium-high heat. Add mushrooms and cook until browned, about 8 minutes. Season with salt and set aside.",
+			"In a heavy-bottomed pot, heat the remaining olive oil and 1 tbsp vegan butter over medium heat.",
+			"Add onion and cook until soft and translucent, about 5 minutes.",
+			"Add garlic and thyme, cook for 1 minute until fragrant.",
+			"Add the arborio rice and stir for 2-3 minutes until the grains are translucent around the edges.",
+			"If using, add the white wine and stir until absorbed.",
+			"Add 1 cup of warm vegetable broth, stirring frequently until the liquid is mostly absorbed.",
+			"Continue adding broth 1/2 cup at a time, stirring frequently and allowing each addition to be mostly absorbed before adding more.",
+			"After about 18-20 minutes, the rice should be creamy and al dente (tender but still slightly firm).",
+			"Stir in the cooked mushrooms, nutritional yeast, and remaining 1 tbsp vegan butter.",
+			"Season with salt and black pepper to taste.",
+			"Remove from heat, cover, and let stand for 2 minutes.",
+			"Garnish with fresh parsley and serve immediately."
+		]
+	},
+	{
+		name: "Sweet Potato Buddha Bowl",
+		ingredients: [
+			"2 medium sweet potatoes, peeled and cubed",
+			"1 can (15 oz) black beans, drained and rinsed",
+			"1 cup quinoa, rinsed",
+			"2 cups water or vegetable broth (for cooking quinoa)",
+			"1 medium avocado, sliced",
+			"2 cups fresh spinach or kale",
+			"1 cup cherry tomatoes, halved",
+			"1/4 red onion, thinly sliced",
+			"2 tbsp olive oil",
+			"1 tsp cumin",
+			"1 tsp paprika",
+			"1/2 tsp garlic powder",
+			"Salt and pepper to taste",
+			"For the tahini dressing:",
+			"3 tbsp tahini",
+			"1 tbsp maple syrup",
+			"2 tbsp lemon juice",
+			"1 garlic clove, minced",
+			"Water to thin as needed",
+			"Salt to taste"
+		],
+		instructions: [
+			"Preheat oven to 400°F (200°C). Line a baking sheet with parchment paper.",
+			"In a bowl, toss sweet potato cubes with 1 tbsp olive oil, cumin, paprika, garlic powder, salt, and pepper.",
+			"Spread sweet potatoes on the baking sheet and roast for 25-30 minutes, turning halfway, until tender and caramelized.",
+			"Meanwhile, combine quinoa and water/broth in a pot. Bring to a boil, then reduce heat, cover, and simmer for 15 minutes until water is absorbed.",
+			"Remove quinoa from heat, fluff with a fork, and let stand covered for 5 minutes.",
+			"Make the dressing: Whisk together tahini, maple syrup, lemon juice, garlic, and salt. Add water as needed to reach desired consistency.",
+			"Heat the remaining 1 tbsp olive oil in a skillet over medium heat. Add black beans, season with salt and pepper, and heat through for about 3-4 minutes.",
+			"To assemble the bowls: Place a bed of greens in each bowl, then add quinoa, roasted sweet potatoes, black beans, cherry tomatoes, avocado slices, and red onion.",
+			"Drizzle with tahini dressing and serve immediately."
+		]
+	}
+	
     // Add new recipes here when updating your website
 ];
 
