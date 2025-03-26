@@ -285,6 +285,7 @@ const recipeData = [
             "To assemble the bowls, place a layer of greens at the bottom, then add quinoa, roasted sweet potatoes, black beans, cherry tomatoes, sliced avocado, and red onion.",
             "Drizzle with tahini dressing and serve."
         ]
+		]
     }
     // Add any new recipes below this line if desired
 ];

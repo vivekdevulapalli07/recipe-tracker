@@ -50,7 +50,32 @@
         </div>
     </div>
     
+    <!-- Scripts with proper order -->
     <script src="recipes.js"></script>
     <script src="script.js"></script>
+    
+    <!-- Debug script to check if recipes are loaded -->
+    <script>
+        window.addEventListener('load', function() {
+            console.log('Window loaded.');
+            if (typeof recipeData !== 'undefined') {
+                console.log('recipeData is defined with', recipeData.length, 'recipes');
+            } else {
+                console.error('recipeData is not defined!');
+            }
+            
+            if (typeof recipes !== 'undefined') {
+                console.log('recipes array has', recipes.length, 'recipes');
+            } else {
+                console.error('recipes array is not defined!');
+            }
+            
+            if (document.getElementById('recipes-list')) {
+                console.log('recipes-list element found');
+            } else {
+                console.error('recipes-list element NOT found!');
+            }
+        });
+    </script>
 </body>
 </html>
