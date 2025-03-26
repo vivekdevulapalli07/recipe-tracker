@@ -1,30 +1,79 @@
-<!-- Update the script section in index.html -->
-<!-- Replace the existing script tags with these -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Recipe Tracker</h1>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search recipes...">
+                <button id="search-button">Search</button>
+            </div>
+        </header>
 
-<!-- Scripts with proper order -->
-<script src="recipes.js"></script>
-<script src="script.js"></script>
+        <div id="recipes-list">
+            <!-- Recipes will be populated here by JavaScript -->
+        </div>
 
-<!-- Debug script to check if recipes are loaded - for troubleshooting -->
-<script>
-    window.addEventListener('load', function() {
-        console.log('Window loaded.');
-        if (typeof recipeData !== 'undefined') {
-            console.log('recipeData is defined with', recipeData.length, 'recipes');
-        } else {
-            console.error('recipeData is not defined!');
-        }
-        
-        if (typeof recipes !== 'undefined') {
-            console.log('recipes array has', recipes.length, 'recipes');
-        } else {
-            console.error('recipes array is not defined!');
-        }
-        
-        if (document.getElementById('recipes-list')) {
-            console.log('recipes-list element found');
-        } else {
-            console.error('recipes-list element NOT found!');
-        }
-    });
-</script>
+        <div class="add-recipe-button-container">
+            <button id="add-recipe-button">Add New Recipe</button>
+        </div>
+
+        <!-- Add Recipe Modal -->
+        <div id="add-recipe-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Add New Recipe</h2>
+                <form id="recipe-form">
+                    <div class="form-group">
+                        <label for="recipe-name">Recipe Name:</label>
+                        <input type="text" id="recipe-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="recipe-ingredients">Ingredients (one per line):</label>
+                        <textarea id="recipe-ingredients" rows="8" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="recipe-instructions">Instructions (one step per line):</label>
+                        <textarea id="recipe-instructions" rows="8" required></textarea>
+                    </div>
+                    <button type="submit">Save Recipe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts with proper order -->
+    <script src="recipes.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Debug script to check if recipes are loaded -->
+    <script>
+        window.addEventListener('load', function() {
+            console.log('Window loaded.');
+            if (typeof recipeData !== 'undefined') {
+                console.log('recipeData is defined with', recipeData.length, 'recipes');
+            } else {
+                console.error('recipeData is not defined!');
+            }
+            
+            if (typeof recipes !== 'undefined') {
+                console.log('recipes array has', recipes.length, 'recipes');
+            } else {
+                console.error('recipes array is not defined!');
+            }
+            
+            if (document.getElementById('recipes-list')) {
+                console.log('recipes-list element found');
+            } else {
+                console.error('recipes-list element NOT found!');
+            }
+        });
+    </script>
+</body>
+</html>

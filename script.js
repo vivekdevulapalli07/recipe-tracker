@@ -1,5 +1,3 @@
-// Update script.js with these fixes:
-
 // Global recipes variable with IDs
 let recipes = [];
 
@@ -166,9 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// The rest of your script.js remains the same...
-// Only include these DOM elements and function definitions here:
-
 // DOM elements
 const recipesList = document.getElementById('recipes-list');
 const searchInput = document.getElementById('search-input');
@@ -289,4 +284,15 @@ function setupSearch() {
     if (!searchButton || !searchInput) {
         console.log('Search elements not found, not setting up search');
         return;
+    }
     
+    // Search on button click
+    searchButton.addEventListener('click', searchRecipes);
+    
+    // Search on Enter key press
+    searchInput.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter') {
+            searchRecipes();
+        }
+    });
+}
