@@ -184,8 +184,7 @@ const allRecipes = [
             "Pour into a glass and enjoy immediately.",
             "For a colder smoothie, add a few ice cubes before blending."
         ]
-    }
-	
+    },
 	{
 		name: "Chickpea Curry",
 		ingredients: [
