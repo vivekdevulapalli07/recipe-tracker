@@ -251,41 +251,39 @@ const recipeData = [
             "Garnish with fresh parsley and serve immediately."
         ]
     },
-    {
-        name: "Sweet Potato Buddha Bowl",
-        ingredients: [
-            "2 medium sweet potatoes, peeled and cubed",
-            "1 can (15 oz) black beans, drained and rinsed",
-            "1 cup quinoa, rinsed",
-            "2 cups water or vegetable broth (for cooking quinoa)",
-            "1 medium avocado, sliced",
-            "2 cups fresh spinach or kale",
-            "1 cup cherry tomatoes, halved",
-            "1/4 red onion, thinly sliced",
-            "2 tbsp olive oil",
-            "1 tsp cumin",
-            "1 tsp paprika",
-            "1/2 tsp garlic powder",
-            "Salt and pepper to taste",
-            "For the tahini dressing:",
-            "3 tbsp tahini",
-            "1 tbsp maple syrup",
-            "2 tbsp lemon juice",
-            "1 garlic clove, minced",
-            "Water to thin as needed",
-            "Salt to taste"
-			
-        instructions: [
-            "Preheat oven to 400°F (200°C).",
-            "Toss sweet potato cubes with 1 tbsp olive oil, cumin, paprika, garlic powder, salt, and pepper.",
-            "Spread on a baking sheet and roast for 25-30 minutes until tender and golden, tossing halfway through.",
-            "Meanwhile, cook quinoa in water or vegetable broth according to package instructions, typically bringing to a boil then simmering covered for 15 minutes.",
-            "For the dressing, whisk together tahini, maple syrup, lemon juice, garlic, and salt. Add water a little at a time until it reaches a pourable consistency.",
-            "In a pan, gently warm the black beans with a pinch of cumin and salt.",
-            "To assemble the bowls, place a layer of greens at the bottom, then add quinoa, roasted sweet potatoes, black beans, cherry tomatoes, sliced avocado, and red onion.",
-            "Drizzle with tahini dressing and serve."
-        ]
-		]
+	{
+    name: "Sweet Potato Buddha Bowl",
+    ingredients: [
+        "2 medium sweet potatoes, peeled and cubed",
+        "1 can (15 oz) black beans, drained and rinsed",
+        "1 cup quinoa, rinsed",
+        "2 cups water or vegetable broth (for cooking quinoa)",
+        "1 medium avocado, sliced",
+        "2 cups fresh spinach or kale",
+        "1 cup cherry tomatoes, halved",
+        "1/4 red onion, thinly sliced",
+        "2 tbsp olive oil",
+        "1 tsp cumin",
+        "1 tsp paprika",
+        "1/2 tsp garlic powder",
+        "Salt and pepper to taste",
+        "For the tahini dressing:",
+        "3 tbsp tahini",
+        "1 tbsp maple syrup",
+        "2 tbsp lemon juice",
+        "1 garlic clove, minced",
+        "Water to thin as needed",
+        "Salt to taste"
+    ],  // This closing bracket was missing
+    instructions: [
+        "Preheat oven to 400°F (200°C).",
+        "Toss sweet potato cubes with 1 tbsp olive oil, cumin, paprika, garlic powder, salt, and pepper.",
+        "Spread on a baking sheet and roast for 25-30 minutes until tender and golden, tossing halfway through.",
+        "Meanwhile, cook quinoa in water or vegetable broth according to package instructions, typically bringing to a boil then simmering covered for 15 minutes.",
+        "For the dressing, whisk together tahini, maple syrup, lemon juice, garlic, and salt. Add water a little at a time until it reaches a pourable consistency.",
+        "In a pan, gently warm the black beans with a pinch of cumin and salt.",
+        "To assemble the bowls, place a layer of greens at the bottom, then add quinoa, roasted sweet potatoes, black beans, cherry tomatoes, sliced avocado, and red onion.",
+        "Drizzle with tahini dressing and serve."
+    ]
     }
-    // Add any new recipes below this line if desired
 ];
