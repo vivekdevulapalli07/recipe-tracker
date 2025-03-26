@@ -1,5 +1,5 @@
-// Define all recipes in a central collection
-const defaultRecipes = [
+// All recipe data
+const allRecipes = [
     {
         name: "Broccoli Almond Soup",
         ingredients: [
@@ -120,7 +120,6 @@ const defaultRecipes = [
             "Slice and enjoy! Store leftovers in an airtight container at room temperature for up to 3 days."
         ]
     },
-    // Add your new recipes here
     {
         name: "Pasta Arrabiata",
         ingredients: [
@@ -186,47 +185,28 @@ const defaultRecipes = [
             "For a colder smoothie, add a few ice cubes before blending."
         ]
     }
-    // You can continue adding more recipes here
+    // Add new recipes here when updating your website
 ];
 
-// Initialize recipes or synchronize with existing ones
-let recipes = JSON.parse(localStorage.getItem('recipes')) || [];
+// Initialize recipes with IDs if not already done
+let recipes = [];
 
-// Function to compare and update recipes
-function syncRecipes() {
-    let recipeChanged = false;
-    
-    // Create a map of existing recipes by name for easy lookup
-    const existingRecipesMap = {};
-    recipes.forEach(recipe => {
-        existingRecipesMap[recipe.name] = recipe;
+// Function to initialize recipes with IDs
+function initializeRecipes() {
+    // Add IDs to each recipe
+    recipes = allRecipes.map(recipe => {
+        return {
+            id: generateId(),
+            ...recipe
+        };
     });
     
-    // Add or update default recipes
-    defaultRecipes.forEach(defaultRecipe => {
-        // If recipe doesn't exist, add it
-        if (!existingRecipesMap[defaultRecipe.name]) {
-            const newRecipe = {
-                id: generateId(),
-                ...defaultRecipe
-            };
-            recipes.push(newRecipe);
-            recipeChanged = true;
-        }
-    });
-    
-    // Save if changes were made
-    if (recipeChanged) {
-        saveRecipes();
-    }
+    // Store in localStorage for checkbox state persistence
+    saveRecipes();
 }
 
 // DOM elements
 const recipesList = document.getElementById('recipes-list');
-const addRecipeButton = document.getElementById('add-recipe-button');
-const addRecipeModal = document.getElementById('add-recipe-modal');
-const closeModalButton = document.querySelector('.close');
-const recipeForm = document.getElementById('recipe-form');
 const searchInput = document.getElementById('search-input');
 const searchButton = document.getElementById('search-button');
 
@@ -270,26 +250,6 @@ function searchRecipes() {
     displayRecipes(filteredRecipes);
 }
 
-// Event Listeners
-if (addRecipeButton) {
-    addRecipeButton.addEventListener('click', () => {
-        addRecipeModal.style.display = 'block';
-    });
-}
-
-if (closeModalButton) {
-    closeModalButton.addEventListener('click', () => {
-        addRecipeModal.style.display = 'none';
-    });
-}
-
-// Click outside modal to close
-window.addEventListener('click', (event) => {
-    if (event.target === addRecipeModal) {
-        addRecipeModal.style.display = 'none';
-    }
-});
-
 // Search functionality
 if (searchButton) {
     searchButton.addEventListener('click', searchRecipes);
@@ -303,37 +263,6 @@ if (searchInput) {
     });
 }
 
-// Form submission
-if (recipeForm) {
-    recipeForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        
-        const name = document.getElementById('recipe-name').value;
-        const ingredientsText = document.getElementById('recipe-ingredients').value;
-        const instructionsText = document.getElementById('recipe-instructions').value;
-        
-        const ingredients = ingredientsText.split('\n').filter(i => i.trim() !== '');
-        const instructions = instructionsText.split('\n').filter(i => i.trim() !== '');
-        
-        const newRecipe = {
-            id: generateId(),
-            name,
-            ingredients,
-            instructions
-        };
-        
-        recipes.push(newRecipe);
-        saveRecipes();
-        
-        // Reset form and close modal
-        recipeForm.reset();
-        addRecipeModal.style.display = 'none';
-        
-        // Refresh recipe list
-        displayRecipes();
-    });
-}
-
 // Utility functions
 function generateId() {
     return '_' + Math.random().toString(36).substr(2, 9);
@@ -342,15 +271,6 @@ function generateId() {
 function saveRecipes() {
     localStorage.setItem('recipes', JSON.stringify(recipes));
 }
-
-// Initialize
-document.addEventListener('DOMContentLoaded', () => {
-    // Sync recipes with defaults first
-    syncRecipes();
-    
-    // Then display
-    displayRecipes();
-});
 
 // For recipe.html page
 function loadRecipeDetails() {
@@ -418,3 +338,27 @@ function loadRecipeDetails() {
         });
     });
 }
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    // Try to load recipes from localStorage (for checkbox states)
+    const storedRecipes = JSON.parse(localStorage.getItem('recipes'));
+    
+    if (storedRecipes && storedRecipes.length > 0) {
+        // Use stored recipes if they exist
+        recipes = storedRecipes;
+    } else {
+        // Otherwise initialize from our defined recipes
+        initializeRecipes();
+    }
+    
+    // Display recipes (only on index page)
+    if (document.getElementById('recipes-list')) {
+        displayRecipes();
+    }
+    
+    // Load recipe details (only on recipe page)
+    if (document.getElementById('recipe-container')) {
+        loadRecipeDetails();
+    }
+});
