@@ -1,43 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Details</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <div id="recipe-container" class="recipe-container">
-            <!-- Recipe details will be loaded by JavaScript -->
-        </div>
-    </div>
-    
-    <!-- Scripts with proper order -->
-    <script src="recipes.js"></script>
-    <script src="script.js"></script>
-    
-    <!-- Debug script for recipe page -->
-    <script>
-        window.addEventListener('load', function() {
-            console.log('Recipe page loaded.');
-            
-            if (typeof recipeData !== 'undefined') {
-                console.log('recipeData is defined with', recipeData.length, 'recipes');
-            } else {
-                console.error('recipeData is not defined!');
-            }
-            
-            if (typeof recipes !== 'undefined') {
-                console.log('recipes array has', recipes.length, 'recipes');
-            } else {
-                console.error('recipes array is not defined!');
-            }
+<!-- Update the script section in recipe.html -->
+<!-- Replace the existing script tags with these -->
 
-            const urlParams = new URLSearchParams(window.location.search);
-            const recipeId = urlParams.get('id');
-            console.log('Recipe ID from URL:', recipeId);
-        });
-    </script>
-</body>
-</html>
+<!-- Scripts with proper order -->
+<script src="recipes.js"></script>
+<script src="script.js"></script>
+    
+<!-- Debug script for recipe page - for troubleshooting -->
+<script>
+    window.addEventListener('load', function() {
+        console.log('Recipe page loaded.');
+        
+        if (typeof recipeData !== 'undefined') {
+            console.log('recipeData is defined with', recipeData.length, 'recipes');
+        } else {
+            console.error('recipeData is not defined!');
+        }
+        
+        if (typeof recipes !== 'undefined') {
+            console.log('recipes array has', recipes.length, 'recipes');
+        } else {
+            console.error('recipes array is not defined!');
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const recipeId = urlParams.get('id');
+        console.log('Recipe ID from URL:', recipeId);
+        
+        if (document.getElementById('recipe-container')) {
+            console.log('recipe-container element found');
+        } else {
+            console.error('recipe-container element NOT found!');
+        }
+    });
+</script>
