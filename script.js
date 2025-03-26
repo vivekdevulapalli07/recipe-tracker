@@ -5,9 +5,11 @@
 let recipes = [];
 
 // Function to initialize recipes with IDs
+
+// Update these lines in script.js
 function initializeRecipes() {
     // Reset localStorage to ensure all recipes are loaded
-    const forceReset = false; // Set to true when you add new recipes to clear localStorage
+    const forceReset = true; // Set to true when you add new recipes to clear localStorage
     
     if (forceReset) {
         localStorage.removeItem('recipes');
@@ -15,7 +17,7 @@ function initializeRecipes() {
     }
     
     // Add a version number to track recipe updates
-    const currentVersion = '1.1'; // Increment this when you update recipes
+    const currentVersion = '1.2'; // Increment this when you update recipes
     const storedVersion = localStorage.getItem('recipeVersion');
     
     // Check if we have recipes in localStorage and version matches

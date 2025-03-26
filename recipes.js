@@ -274,3 +274,17 @@ const recipeData = [
             "1 garlic clove, minced",
             "Water to thin as needed",
             "Salt to taste"
+			
+        instructions: [
+            "Preheat oven to 400°F (200°C).",
+            "Toss sweet potato cubes with 1 tbsp olive oil, cumin, paprika, garlic powder, salt, and pepper.",
+            "Spread on a baking sheet and roast for 25-30 minutes until tender and golden, tossing halfway through.",
+            "Meanwhile, cook quinoa in water or vegetable broth according to package instructions, typically bringing to a boil then simmering covered for 15 minutes.",
+            "For the dressing, whisk together tahini, maple syrup, lemon juice, garlic, and salt. Add water a little at a time until it reaches a pourable consistency.",
+            "In a pan, gently warm the black beans with a pinch of cumin and salt.",
+            "To assemble the bowls, place a layer of greens at the bottom, then add quinoa, roasted sweet potatoes, black beans, cherry tomatoes, sliced avocado, and red onion.",
+            "Drizzle with tahini dressing and serve."
+        ]
+    }
+    // Add any new recipes below this line if desired
+];
