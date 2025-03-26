@@ -27,7 +27,117 @@ if (recipes.length === 0) {
             "While serving heat and garnish with chili oil, roasted almond flakes or seeds & broccoli florets."
         ]
     };
+    
+    // Tomato Chutney Recipe
+    const tomatoChutney = {
+        id: generateId(),
+        name: "Tomato Chutney",
+        ingredients: [
+            "4 large ripe tomatoes",
+            "2 tbsp oil (preferably sesame or peanut)",
+            "1 tsp mustard seeds",
+            "1 tsp cumin seeds",
+            "2-3 dried red chilies",
+            "1/2 tsp asafoetida (hing)",
+            "10-12 curry leaves",
+            "1 inch ginger, chopped",
+            "4-5 cloves garlic, minced",
+            "1 onion, finely chopped",
+            "1/2 tsp turmeric powder",
+            "1 tsp red chili powder (adjust to taste)",
+            "2 tbsp jaggery or brown sugar",
+            "Salt to taste",
+            "2 tbsp tamarind pulp or 1 tbsp lemon juice"
+        ],
+        instructions: [
+            "Chop tomatoes into small pieces and keep aside.",
+            "Heat oil in a pan over medium heat. Add mustard seeds and let them splutter.",
+            "Add cumin seeds, dried red chilies, asafoetida and curry leaves. Sauté for 30 seconds until fragrant.",
+            "Add chopped ginger, garlic and onion. Sauté until onions turn translucent.",
+            "Add tomatoes, turmeric powder, red chili powder and salt. Mix well.",
+            "Cover and cook for 10-12 minutes on medium-low heat until tomatoes are soft and mushy.",
+            "Add jaggery or brown sugar and tamarind pulp (or lemon juice). Mix well and cook for another 5 minutes.",
+            "Mash the mixture with a spoon for a smooth consistency or leave chunky if preferred.",
+            "Cook until the chutney reaches a thick, jam-like consistency.",
+            "Let it cool completely before storing in an airtight container in the refrigerator."
+        ]
+    };
+
+    // Kanda Poha Recipe
+    const kandaPoha = {
+        id: generateId(),
+        name: "Kanda Poha",
+        ingredients: [
+            "2 cups flattened rice (poha), medium thickness",
+            "1 large onion (kanda), finely chopped",
+            "2 green chilies, finely chopped",
+            "1 medium potato, diced small (optional)",
+            "1 tsp mustard seeds",
+            "1 tsp cumin seeds",
+            "10-12 curry leaves",
+            "1/4 cup peanuts",
+            "1/2 tsp turmeric powder",
+            "1 tbsp lemon juice",
+            "2 tbsp oil",
+            "Salt to taste",
+            "2 tbsp fresh coriander leaves, chopped",
+            "1 tbsp grated coconut for garnish (optional)"
+        ],
+        instructions: [
+            "Rinse the poha in a colander under running water for a few seconds. Don't soak it.",
+            "After rinsing, sprinkle a little water on the poha, add 1/2 tsp salt and 1/4 tsp turmeric. Mix gently and set aside for 5 minutes to soften.",
+            "Heat oil in a pan. Add mustard seeds and let them splutter.",
+            "Add cumin seeds, curry leaves, and peanuts. Sauté until peanuts turn light golden brown.",
+            "If using potato, add it now and cook until almost tender (about 5-6 minutes).",
+            "Add chopped onions and green chilies. Sauté until onions become translucent.",
+            "Add remaining turmeric powder and mix well.",
+            "Add the soaked poha and mix gently to combine with the other ingredients.",
+            "Cover and cook on low heat for 2 minutes.",
+            "Turn off the heat, add lemon juice and mix well.",
+            "Garnish with fresh coriander leaves and grated coconut if using.",
+            "Serve hot with a side of chutney if desired."
+        ]
+    };
+
+    // Vegan Chocolate Cake Recipe
+    const veganChocolateCake = {
+        id: generateId(),
+        name: "Vegan Chocolate Cake",
+        ingredients: [
+            "1 1/2 cups all-purpose flour",
+            "1 cup granulated sugar",
+            "1/4 cup cocoa powder",
+            "1 tsp baking soda",
+            "1/2 tsp salt",
+            "1/3 cup vegetable oil",
+            "1 tbsp white vinegar",
+            "1 tsp vanilla extract",
+            "1 cup cold water",
+            "For the frosting (optional):",
+            "2 cups powdered sugar",
+            "1/4 cup cocoa powder",
+            "1/4 cup vegan butter",
+            "3-4 tbsp plant-based milk",
+            "1/2 tsp vanilla extract"
+        ],
+        instructions: [
+            "Preheat oven to 175°C (350°F). Lightly grease an 8-inch square or round cake pan.",
+            "In a large bowl, mix together flour, sugar, cocoa powder, baking soda, and salt.",
+            "Make three wells in the dry ingredients. Pour oil into first well, vinegar into second well, and vanilla into third well.",
+            "Pour cold water over all ingredients and mix until smooth.",
+            "Pour batter into the prepared cake pan.",
+            "Bake for 30-35 minutes, or until a toothpick inserted in the center comes out clean.",
+            "Allow cake to cool completely before frosting.",
+            "For the frosting (if using): In a medium bowl, beat together powdered sugar, cocoa powder, vegan butter, plant-based milk, and vanilla extract until smooth and creamy.",
+            "Once cake has cooled completely, spread frosting evenly over the top and sides of the cake.",
+            "Slice and enjoy! Store leftovers in an airtight container at room temperature for up to 3 days."
+        ]
+    };
+    
     recipes.push(defaultRecipe);
+    recipes.push(tomatoChutney);
+    recipes.push(kandaPoha);
+    recipes.push(veganChocolateCake);
     saveRecipes();
 }
 
